@@ -3,30 +3,48 @@ let produtos = [
         "nome": "Geladeira",
         "categoria": "Eletrodomésticos",
         "preco": 995.90,
-        "imgPath": "../img/geladeira.jpg"
+        "imgPath": "../img/geladeira.png"
     },
     {
         "nome": "Notebook",
         "categoria": "Eletrônicos",
         "preco": 4000.00,
-        "imgPath": "../img/notebook.jpg"
+        "imgPath": "../img/notebook.png"
+    },
+    {
+        "nome": "Notebook",
+        "categoria": "Eletrônicos",
+        "preco": 4000.00,
+        "imgPath": "../img/notebook.png"
     },
     {
         "nome": "Guarda roupa",
         "categoria": "Móveis",
         "preco": 500.00,
-        "imgPath": "../img/guarda-roupa.jpg"
+        "imgPath": "../img/guarda-roupa.png"
     },
     {
-        "nome": "Camiseta",
-        "categoria": "Vestuário",
-        "preco": 60.00,
-        "imgPath": "../img/camiseta.jpg"
+        "nome": "Geladeira",
+        "categoria": "Eletrodomésticos",
+        "preco": 995.90,
+        "imgPath": "../img/geladeira.png"
     },
     {
-        "nome": "Fone de ouvido",
+        "nome": "Notebook",
         "categoria": "Eletrônicos",
-        "preco": 200.00,
-        "imgPath": "../img/fone-de-ouvido.jpg"
+        "preco": 4000.00,
+        "imgPath": "../img/notebook.png"
+    },
+    {
+        "nome": "Notebook",
+        "categoria": "Eletrônicos",
+        "preco": 4000.00,
+        "imgPath": "../img/notebook.png"
+    },
+    {
+        "nome": "Guarda roupa",
+        "categoria": "Móveis",
+        "preco": 500.00,
+        "imgPath": "../img/guarda-roupa.png"
     }
 ]

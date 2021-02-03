@@ -1,5 +1,5 @@
 let menuBar = document.querySelector(".left-menubar")
-let content = document.querySelector(".content")
+let content = document.querySelector(".card-container")
 
 function getCategoriasUnicas(produtos){
     let categorias = []
@@ -31,17 +31,29 @@ for(let i = 0; i < categoriasUnicas.length; i++){
 for(let i = 0; i < produtos.length; i++){
     let card = document.createElement("div")
     card.className = "card"
-    card.style.backgroundColor = "rgba(255,255,255,0.8)"
-    card.style.borderRadius = "5px"
-    card.style.padding = "20px 0"
-    card.style.fontWeight = "bold"
-    card.style.minHeight = "300px"
     
-    card.style.display = "flex"
-    card.style.justifyContent = "center"
-    card.style.alignItems = "center"
+    //card.innerHTML = produtos[i]["nome"] + "</br>"
     
-    card.innerHTML = produtos[i]["nome"]
+    let img = document.createElement("img")
+    img.className = "fotoProduto"
+    img.src = produtos[i]["imgPath"]
+
+    let nome = document.createElement("div")
+    nome.className = "nome"
+    nome.innerHTML = produtos[i]["nome"]
+
+    let preco = document.createElement("p")
+    preco.className = "preco"
+    preco.innerHTML = `R$${produtos[i]["preco"].toFixed(2)}`
+
+    let comprar = document.createElement("button")
+    comprar.className = "botaoComprar"
+    comprar.innerHTML = "Adicionar ao carrinho"
+
+    card.appendChild(img)
+    card.appendChild(nome)
+    card.appendChild(preco)
+    card.appendChild(comprar)
 
     content.appendChild(card)
 }
