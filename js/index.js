@@ -1,7 +1,7 @@
 let menuBar = document.querySelector(".left-menubar")
 let content = document.querySelector(".card-container")
 
-function getCategoriasUnicas(produtos){
+function getCategorias(produtos){
     let categorias = []
     
     for (const produto of produtos) {
@@ -9,10 +9,10 @@ function getCategoriasUnicas(produtos){
     }
     return [...new Set(categorias)]
 }
-let categoriasUnicas = getCategoriasUnicas(produtos)
+let categorias = getCategorias(produtos)
 
 //preenchendo os itens dinamicamente no menu da esquerda
-for(let i = 0; i < categoriasUnicas.length; i++){
+for(let i = 0; i < categorias.length; i++){
     let item = document.createElement("div")
     item.style.width = "100%"
     item.style.height = "10%"
@@ -21,7 +21,7 @@ for(let i = 0; i < categoriasUnicas.length; i++){
     item.style.display = "flex"
     item.style.justifyContent = "center"
     item.style.alignItems = "center"
-    item.innerHTML = categoriasUnicas[i]
+    item.innerHTML = categorias[i]
 
     menuBar.appendChild(item)
 }
