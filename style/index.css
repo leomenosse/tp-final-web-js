@@ -1,17 +1,16 @@
-body{
+body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
 }
 
-.container{
+.container {
     display: grid;
     grid-template-columns: 20vw 80vw;
     grid-template-rows: 10vh 90vh;
-    grid-template-areas: "header header"
-                         "menu card-container";
+    grid-template-areas: "header header" "menu card-container";
 }
 
-.header{
+.header {
     grid-area: header;
     background-color: #49c6e5;
     display: grid;
@@ -22,8 +21,16 @@ body{
     align-items: center;
 }
 
-.titulo{
+.titulo {
     grid-area: titulo;
+    border: none;
+    border-radius: 1rem;
+    padding: 5px;
+    color: white;
+    background-color: tomato;
+    text-align: center;
+    font-size: 30px;
+    width: 400px;
 }
 
 .finalizar {
@@ -32,12 +39,23 @@ body{
     margin-right: 30px;
 }
 
-.left-menubar{
+.left-menubar {
     grid-area: menu;
     background: #00bd9d;
+    padding: 1rem;
 }
 
-.card-container{
+.left-menubar .itens {
+    border: none;
+    border-radius: 1rem;
+    color: white;
+    background-color: tomato;
+    text-align: center;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.card-container {
     grid-area: card-container;
     background-color: #8bd7d2;
     padding: 1rem;
@@ -47,8 +65,8 @@ body{
     overflow-y: scroll;
 }
 
-.card{
-    background-color: rgba(255,255,255,0.8);
+.card {
+    background-color: rgba(255, 255, 255, 0.8);
     box-shadow: 0px 1px 5px #555;
     border-radius: 1rem;
     font-weight: bold;
@@ -59,19 +77,20 @@ body{
     transition: transform .3s;
 }
 
-.card:hover{
+.card:hover {
     transform: translateY(-3px);
-    box-shadow: 2px 2px 26px 0px rgba(0,0,0,0.3);;
+    box-shadow: 2px 2px 26px 0px rgba(0, 0, 0, 0.3);
+    ;
 }
 
-.card .fotoProduto{
+.card .fotoProduto {
     grid-area: foto;
     width: 100%;
     max-height: 100%;
     object-fit: cover;
 }
 
-.card .nome{
+.card .nome {
     grid-area: nome;
     display: flex;
     justify-content: center;
@@ -79,7 +98,7 @@ body{
     font-size: 1.2rem;
 }
 
-.card .preco{
+.card .preco {
     grid-area: preco;
     display: flex;
     justify-content: center;
@@ -87,7 +106,7 @@ body{
     margin: 0;
 }
 
-.card .botaoComprar{
+.card .botaoComprar {
     grid-area: comprar;
     border: none;
     border-radius: 0 0 1rem 1rem;
@@ -101,6 +120,19 @@ body{
     font-size: 18px;
 }
 
-.card .botaoComprar:hover{
+.finalizar button {
+    border: none;
+    border-radius: 1rem;
+    padding: 12px;
+    color: white;
+    background-color: tomato;
+    text-align: center;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.card .botaoComprar:hover,
+.finalizar button:hover,
+.left-menubar .itens:hover {
     background-color: rgb(209, 64, 38);
 }

@@ -1,9 +1,9 @@
 let menuBar = document.querySelector(".left-menubar")
 let content = document.querySelector(".card-container")
 
-function getCategorias(produtos){
+function getCategorias(produtos) {
     let categorias = []
-    
+
     for (const produto of produtos) {
         categorias.push(produto["categoria"])
     }
@@ -12,15 +12,17 @@ function getCategorias(produtos){
 let categorias = getCategorias(produtos)
 
 //preenchendo os itens dinamicamente no menu da esquerda
-for(let i = 0; i < categorias.length; i++){
+for (let i = 0; i < categorias.length; i++) {
     let item = document.createElement("div")
+    item.className = "itens"
     item.style.width = "100%"
     item.style.height = "10%"
     item.style.fontWeight = "bold"
- 
+
     item.style.display = "flex"
     item.style.justifyContent = "center"
     item.style.alignItems = "center"
+    item.style.marginBottom = "10px"
     item.innerHTML = categorias[i]
 
     menuBar.appendChild(item)
@@ -28,12 +30,12 @@ for(let i = 0; i < categorias.length; i++){
 
 
 //preenchendo dinamicamente o conteudo principal
-for(let i = 0; i < produtos.length; i++){
+for (let i = 0; i < produtos.length; i++) {
     let card = document.createElement("div")
     card.className = "card"
-    
+
     //card.innerHTML = produtos[i]["nome"] + "</br>"
-    
+
     let img = document.createElement("img")
     img.className = "fotoProduto"
     img.src = produtos[i]["imgPath"]
