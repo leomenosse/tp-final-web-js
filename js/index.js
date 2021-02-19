@@ -12,6 +12,40 @@ function getCategorias(produtos) {
 }
 let categorias = getCategorias(produtos)
 
+//exibição de produtos na tela inicial
+//produtos é a lista com os produtos
+//content é o container onde os produtos serão exibidos
+function exibirProdutos(produtos, content){
+    for (let i = 0; i < produtos.length; i++) {
+        let card = document.createElement("div")
+        card.className = "card"
+    
+        let img = document.createElement("img")
+        img.className = "fotoProduto"
+        img.src = produtos[i]["imgPath"]
+    
+        let nome = document.createElement("div")
+        nome.className = "nome"
+        nome.innerHTML = produtos[i]["nome"]
+    
+        let preco = document.createElement("p")
+        preco.className = "preco"
+        preco.innerHTML = `R$${produtos[i]["preco"].toFixed(2)}`
+    
+        let comprar = document.createElement("button")
+        comprar.className = "botaoComprar"
+        comprar.innerHTML = "Adicionar ao carrinho"
+    
+        card.appendChild(img)
+        card.appendChild(nome)
+        card.appendChild(preco)
+        card.appendChild(comprar)
+    
+        content.appendChild(card)
+    }
+}
+exibirProdutos(produtos, content)
+
 //preenchendo os itens dinamicamente no menu da esquerda
 for(let i = 0; i < categorias.length; i++){
     let categoria = document.createElement("input")
@@ -19,6 +53,7 @@ for(let i = 0; i < categorias.length; i++){
     categoria.value = categorias[i]
     categoria.id = categorias[i]
     categoria.name = categorias[i]
+    categoria.className = "checkbox-categoria"
     
     let label = document.createElement("label")
     label.setAttribute("for", categorias[i])
@@ -29,34 +64,4 @@ for(let i = 0; i < categorias.length; i++){
     filtroCategorias.appendChild(categoria)
     filtroCategorias.appendChild(label)
     filtroCategorias.appendChild(lineBreak)
-}
-
-
-//preenchendo dinamicamente o conteudo principal
-for (let i = 0; i < produtos.length; i++) {
-    let card = document.createElement("div")
-    card.className = "card"
-
-    let img = document.createElement("img")
-    img.className = "fotoProduto"
-    img.src = produtos[i]["imgPath"]
-
-    let nome = document.createElement("div")
-    nome.className = "nome"
-    nome.innerHTML = produtos[i]["nome"]
-
-    let preco = document.createElement("p")
-    preco.className = "preco"
-    preco.innerHTML = `R$${produtos[i]["preco"].toFixed(2)}`
-
-    let comprar = document.createElement("button")
-    comprar.className = "botaoComprar"
-    comprar.innerHTML = "Adicionar ao carrinho"
-
-    card.appendChild(img)
-    card.appendChild(nome)
-    card.appendChild(preco)
-    card.appendChild(comprar)
-
-    content.appendChild(card)
 }
