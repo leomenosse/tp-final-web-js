@@ -1,4 +1,6 @@
 let menuBar = document.querySelector(".left-menubar")
+let filtroCategorias = document.querySelector("#categorias")
+let filtroPrecos = document.querySelector("#precos")
 let content = document.querySelector(".card-container")
 
 function getCategorias(produtos) {
@@ -11,51 +13,88 @@ function getCategorias(produtos) {
 }
 let categorias = getCategorias(produtos)
 
+//exibição de produtos na tela inicial
+//produtos é a lista com os produtos
+//content é o container onde os produtos serão exibidos
+function exibirProdutos(produtos, content){
+    for (let i = 0; i < produtos.length; i++) {
+        let card = document.createElement("div")
+        card.className = "card"
+    
+        let img = document.createElement("img")
+        img.className = "fotoProduto"
+        img.src = produtos[i]["imgPath"]
+    
+        let nome = document.createElement("div")
+        nome.className = "nome"
+        nome.innerHTML = produtos[i]["nome"]
+    
+        let preco = document.createElement("p")
+        preco.className = "preco"
+        preco.innerHTML = `R$${produtos[i]["preco"].toFixed(2)}`
+    
+        let comprar = document.createElement("button")
+        comprar.className = "botaoComprar"
+        comprar.innerHTML = "Adicionar ao carrinho"
+    
+        card.appendChild(img)
+        card.appendChild(nome)
+        card.appendChild(preco)
+        card.appendChild(comprar)
+    
+        content.appendChild(card)
+    }
+}
+exibirProdutos(produtos, content)
+
 //preenchendo os itens dinamicamente no menu da esquerda
-for (let i = 0; i < categorias.length; i++) {
-    let item = document.createElement("div")
-    item.className = "itens"
-    item.style.width = "100%"
-    item.style.height = "10%"
-    item.style.fontWeight = "bold"
+for(let i = 0; i < categorias.length; i++){
+    let categoria = document.createElement("input")
+    categoria.type = "checkbox" 
+    categoria.value = categorias[i]
+    categoria.id = categorias[i]
+    categoria.name = categorias[i]
+    categoria.className = "checkbox-categoria"
+    
+    let label = document.createElement("label")
+    label.setAttribute("for", categorias[i])
+    label.innerHTML = categorias[i]
 
-    item.style.display = "flex"
-    item.style.justifyContent = "center"
-    item.style.alignItems = "center"
-    item.style.marginBottom = "10px"
-    item.innerHTML = categorias[i]
+    let lineBreak = document.createElement("br")
 
-    menuBar.appendChild(item)
+    filtroCategorias.appendChild(categoria)
+    filtroCategorias.appendChild(label)
+    filtroCategorias.appendChild(lineBreak)
 }
 
+function setFiltroPreco(){
+    let inicioIntervalos = []
 
-//preenchendo dinamicamente o conteudo principal
-for (let i = 0; i < produtos.length; i++) {
-    let card = document.createElement("div")
-    card.className = "card"
+    for(let i = 0; i < produtos.length; i++){
+        let preco = produtos[i]["preco"]      
+        inicioIntervalos.push(parseInt(preco / 500) * 500) //adicionando o início do intervalo no set
+    }
 
-    //card.innerHTML = produtos[i]["nome"] + "</br>"
+    //coloca em um Set para eliminar os repetidos e aplica uma ordenação
+    inicioIntervalos = [...(new Set(inicioIntervalos))].sort((a, b) => a - b)
 
-    let img = document.createElement("img")
-    img.className = "fotoProduto"
-    img.src = produtos[i]["imgPath"]
+    inicioIntervalos.forEach((inicio)=>{
+        let preco = document.createElement("input")
+        preco.type = "checkbox"
+        preco.value = inicio
+        preco.id = inicio
+        preco.name = inicio
+        preco.className = "checkbox-preco"
 
-    let nome = document.createElement("div")
-    nome.className = "nome"
-    nome.innerHTML = produtos[i]["nome"]
+        let label = document.createElement("label")
+        label.setAttribute("for", inicio)
+        label.innerHTML = `R$${inicio.toFixed(2)} - R$${(inicio+499.99).toFixed(2)}`
 
-    let preco = document.createElement("p")
-    preco.className = "preco"
-    preco.innerHTML = `R$${produtos[i]["preco"].toFixed(2)}`
+        let lineBreak = document.createElement("br")
 
-    let comprar = document.createElement("button")
-    comprar.className = "botaoComprar"
-    comprar.innerHTML = "Adicionar ao carrinho"
-
-    card.appendChild(img)
-    card.appendChild(nome)
-    card.appendChild(preco)
-    card.appendChild(comprar)
-
-    content.appendChild(card)
+        filtroPrecos.appendChild(preco)
+        filtroPrecos.appendChild(label)
+        filtroPrecos.appendChild(lineBreak)
+    })
 }
+setFiltroPreco()

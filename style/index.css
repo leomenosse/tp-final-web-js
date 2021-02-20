@@ -144,3 +144,11 @@ body {
 .voltar:hover {
     background-color: rgb(209, 64, 38);
 }
+
+.titulo-filtro{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    padding: 0.3rem;
+}

@@ -8,13 +8,13 @@ let produtos = [
     {
         "nome": "Notebook",
         "categoria": "Eletrônicos",
-        "preco": 4000.00,
+        "preco": 499.99,
         "imgPath": "../img/notebook.png"
     },
     {
         "nome": "Notebook",
         "categoria": "Eletrônicos",
-        "preco": 4000.00,
+        "preco": 6000.00,
         "imgPath": "../img/notebook.png"
     },
     {
@@ -26,7 +26,7 @@ let produtos = [
     {
         "nome": "Geladeira",
         "categoria": "Eletrodomésticos",
-        "preco": 995.90,
+        "preco": 1050.90,
         "imgPath": "../img/geladeira.png"
     },
     {
