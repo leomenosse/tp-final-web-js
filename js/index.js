@@ -1,5 +1,6 @@
 let menuBar = document.querySelector(".left-menubar")
 let filtroCategorias = document.querySelector("#categorias")
+let filtroPrecos = document.querySelector("#precos")
 let content = document.querySelector(".card-container")
 
 function getCategorias(produtos) {
@@ -65,3 +66,35 @@ for(let i = 0; i < categorias.length; i++){
     filtroCategorias.appendChild(label)
     filtroCategorias.appendChild(lineBreak)
 }
+
+function setFiltroPreco(){
+    let inicioIntervalos = []
+
+    for(let i = 0; i < produtos.length; i++){
+        let preco = produtos[i]["preco"]      
+        inicioIntervalos.push(parseInt(preco / 500) * 500) //adicionando o início do intervalo no set
+    }
+
+    //coloca em um Set para eliminar os repetidos e aplica uma ordenação
+    inicioIntervalos = [...(new Set(inicioIntervalos))].sort((a, b) => a - b)
+
+    inicioIntervalos.forEach((inicio)=>{
+        let preco = document.createElement("input")
+        preco.type = "checkbox"
+        preco.value = inicio
+        preco.id = inicio
+        preco.name = inicio
+        preco.className = "checkbox-preco"
+
+        let label = document.createElement("label")
+        label.setAttribute("for", inicio)
+        label.innerHTML = `R$${inicio.toFixed(2)} - R$${(inicio+499.99).toFixed(2)}`
+
+        let lineBreak = document.createElement("br")
+
+        filtroPrecos.appendChild(preco)
+        filtroPrecos.appendChild(label)
+        filtroPrecos.appendChild(lineBreak)
+    })
+}
+setFiltroPreco()
