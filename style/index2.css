@@ -1,0 +1,88 @@
+.container2 {
+    display: grid;
+    grid-template-columns: 100vw;
+    grid-template-rows: 10vh 90vh;
+    grid-template-areas: "header2" "form-container";
+}
+
+.header2 {
+    grid-area: header2;
+    background-color: #49c6e5;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: "botaoVoltar titulo .";
+    column-gap: 5px;
+    justify-items: center;
+    align-items: center;
+}
+
+.botaoVoltar {
+    grid-area: botaoVoltar;
+    margin-right: auto;
+    margin-left: 30px;
+}
+
+.form-container {
+    grid-area: form-container;
+    background-color: #8bd7d2;
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 85% 15%;
+    grid-template-areas: "label input" "botao botao";
+}
+
+.form-container .labels {
+    grid-area: label;
+    /*border: 5px solid black;*/
+    text-align: right;
+    padding: 1rem;
+}
+
+.form-container .labels p {
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+.form-container .inputs {
+    grid-area: input;
+    /*border: 5px solid black;*/
+    text-align: left;
+    padding: 1rem;
+}
+
+.form-container .inputs input,
+.form-container .inputs select {
+    margin-top: 15px;
+    margin-bottom: 7.25px;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.form-container .inputs select {
+    margin-top: 18.25px;
+}
+
+.form-container .botao {
+    grid-area: botao;
+    /*border: 5px solid black;*/
+    text-align: center;
+    padding: 1rem;
+}
+
+.submit {
+    border: none;
+    border-radius: 1rem;
+    cursor: pointer;
+    padding: 10px;
+    color: white;
+    background-color: tomato;
+    text-align: center;
+    font-size: 15px;
+    width: 350px;
+}
+
+.left-menubar2 {
+    grid-area: menu2;
+    background: #00bd9d;
+    padding: 1rem;
+}

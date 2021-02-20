@@ -120,7 +120,8 @@ body {
     font-size: 18px;
 }
 
-.finalizar button {
+.finalizar button,
+.botaoVoltar button {
     border: none;
     border-radius: 1rem;
     padding: 12px;
@@ -131,8 +132,15 @@ body {
     font-size: 15px;
 }
 
+.botaoVoltar button {
+    width: 135px;
+}
+
 .card .botaoComprar:hover,
 .finalizar button:hover,
-.left-menubar .itens:hover {
+.botaoVoltar button:hover,
+.left-menubar .itens:hover,
+.submit:hover,
+.voltar:hover {
     background-color: rgb(209, 64, 38);
 }
