@@ -36,6 +36,7 @@ function exibirProdutos(produtos, content){
         let comprar = document.createElement("button")
         comprar.className = "botaoComprar"
         comprar.innerHTML = "Adicionar ao carrinho"
+        comprar.name = produtos[i]["id"]
     
         card.appendChild(img)
         card.appendChild(nome)
