@@ -1,7 +1,11 @@
+* {
+    margin: 0;
+}
+
 .container2 {
     display: grid;
-    grid-template-columns: 100vw;
-    grid-template-rows: 10vh 90vh;
+    grid-template-columns: 1fr;
+    grid-template-rows: 10fr 90fr;
     grid-template-areas: "header2" "form-container";
 }
 
@@ -27,9 +31,39 @@
     background-color: #8bd7d2;
     padding: 1rem;
     display: grid;
-    grid-template-columns: 50% 50%;
-    grid-template-rows: 85% 15%;
-    grid-template-areas: "label input" "botao botao";
+    grid-template-columns: 0.5fr 0.5fr;
+    grid-template-rows: auto auto auto;
+    grid-template-areas: "lista-itens lista-itens" "label input" "botao botao";
+}
+
+.form-container .lista-itens {
+    grid-area: lista-itens;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+.total-compra {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 1rem 0 1rem;
+    font-weight: bold;
+}
+
+.form-container table{
+    border-collapse: collapse;
+    width: 100%;
 }
 
 .form-container .labels {

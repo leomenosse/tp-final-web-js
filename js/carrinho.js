@@ -20,3 +20,8 @@ $(".botaoComprar").click(function(){
 
     console.log(carrinho)
 })
+
+$(".finalizar").click(function(){
+    //armazenamento dos dados do carrinho na sessão
+    sessionStorage.setItem('carrinho', JSON.stringify(carrinho))
+})
