@@ -1,5 +1,5 @@
 * {
-    margin: 0;
+    //margin: 0;
 }
 
 .container2 {
@@ -41,6 +41,15 @@
     background-color: white;
     padding: 1rem;
     border-radius: 1rem;
+}
+
+.lista-itens .carrinho {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 1rem;
+    font-weight: bold;
+    font-size: 1.5rem;
 }
 
 td, th {
