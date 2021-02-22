@@ -1,12 +1,11 @@
-$(document).ready(function(){
+$(document).ready(function() {
 
     let produtosCarrinho = JSON.parse(sessionStorage.getItem('carrinho'))
     let totalCompra = 0
 
     if(produtosCarrinho == null || produtosCarrinho.length == 0){
         $(".lista-itens").append("<div>Não há nenhum item no carrinho</div>")
-    }
-    else{ //há produtos no carrinho
+    } else { //há produtos no carrinho
 
         //criação da tabela para exibição dos produtos do carrinho
         let table = document.createElement("table")
@@ -30,9 +29,9 @@ $(document).ready(function(){
         table.appendChild(header)
         $(".lista-itens").append(table)
 
-        for(let i = 0; i < produtosCarrinho.length; i++){
+        for (let i = 0; i < produtosCarrinho.length; i++) {
             let produto = findProduto(produtosCarrinho[i].id, produtos)
-            
+
             let linha = document.createElement("tr")
             let nome = document.createElement("td")
             nome.innerHTML = produto.nome
@@ -59,7 +58,25 @@ $(document).ready(function(){
         totalLabel.innerHTML = `R$${formatPrice(totalCompra)}`
         totalLabel.className = "total-compra"
         $(".lista-itens").append(totalLabel)
-        
+
     }
 })
 
+$(".botao").click(function() {
+    dadosUsuario = []
+
+    dadosUsuario.push({
+        "nome": document.querySelector("#nome").value,
+        "cpf": document.querySelector("#cpf").value,
+        "email": document.querySelector("#email").value,
+        "rua": document.querySelector("#rua").value,
+        "bairro": document.querySelector("#bairro").value,
+        "numero": document.querySelector("#numero").value,
+        "cep": document.querySelector("#cep").value,
+        "cidade": document.querySelector("#cidade").value,
+        "estado": document.querySelector("#estado").value
+    })
+
+    //armazenamento dos dados do usuário na sessão
+    sessionStorage.setItem('dadosUsuario', JSON.stringify(dadosUsuario))
+})
