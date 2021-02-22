@@ -29,14 +29,11 @@ $(".checkbox-preco").change(function(){
     limparProdutos()
     if(this.checked){
         precosEscolhidos.push(parseFloat(this.id))
-        console.log("Faixa de preços adicionada")
     }
     else{
         let indexFaixaPreco = precosEscolhidos.indexOf(parseFloat(this.id))
         if(indexFaixaPreco > -1){
             precosEscolhidos.splice(indexFaixaPreco, 1)
-            console.log("Faixa de preço removida")
-            console.log(precosEscolhidos)
         }
     }
     if(precosEscolhidos.length == 0){
@@ -48,7 +45,10 @@ $(".checkbox-preco").change(function(){
 })
 
 function limparProdutos(){
-    $(".card-container").empty() //removendo todos os produtos
+    const cardContainer = document.querySelector(".card-container")
+    while(cardContainer.firstChild){
+        cardContainer.removeChild(cardContainer.lastChild)
+    }
 }
 
 //recebe uma lista com todos os produtos e uma lista com os nomes
