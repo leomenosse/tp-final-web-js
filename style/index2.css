@@ -1,5 +1,5 @@
 * {
-    //margin: 0;
+    margin: 0;
 }
 
 .container2 {
@@ -36,14 +36,16 @@
     grid-template-areas: "lista-itens lista-itens" "label input" "botao botao";
 }
 
-.form-container .lista-itens {
+.form-container .lista-itens,
+.form-container2 .lista-itens {
     grid-area: lista-itens;
     background-color: white;
     padding: 1rem;
     border-radius: 1rem;
 }
 
-.lista-itens .carrinho {
+.lista-itens .carrinho,
+.lista-dados .usuario {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -52,7 +54,8 @@
     font-size: 1.5rem;
 }
 
-td, th {
+td,
+th {
     border: 1px solid #dddddd;
     text-align: left;
     padding: 8px;
@@ -62,7 +65,8 @@ tr:nth-child(even) {
     background-color: #dddddd;
 }
 
-.total-compra {
+.total-compra,
+.total-frete {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -70,7 +74,8 @@ tr:nth-child(even) {
     font-weight: bold;
 }
 
-.form-container table{
+.form-container table,
+.form-container2 table {
     border-collapse: collapse;
     width: 100%;
 }

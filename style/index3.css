@@ -1,0 +1,24 @@
+.container3 {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 10fr 90fr;
+    grid-template-areas: "header2" "form-container2";
+}
+
+.form-container2 {
+    grid-area: form-container2;
+    background-color: #8bd7d2;
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    grid-template-areas: "lista-itens" "lista-dados";
+}
+
+.form-container2 .lista-dados {
+    grid-area: lista-dados;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 1rem;
+    margin-top: 20px;
+}
