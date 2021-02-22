@@ -3,6 +3,24 @@ let filtroCategorias = document.querySelector("#categorias")
 let filtroPrecos = document.querySelector("#precos")
 let content = document.querySelector(".card-container")
 
+//retorna a quantidade de um item no carrinho de compras
+function getQtdNoCarrinho(id){
+    let carrinho = JSON.parse(sessionStorage.getItem('carrinho'))
+
+    if(carrinho != null && carrinho.length > 0){
+        for(let i = 0; i < carrinho.length; i++){
+            if(carrinho[i].id == id){
+                console.log("Quantidade do item " + id+ " no carrinho: " + carrinho[i].qtd)
+                return carrinho[i].qtd
+            }
+        }
+    }
+    console.log("Quantidade do item " + id+ " no carrinho: " + 0)
+    return 0
+}
+
+//adiciona o item no carrinho (sessionStorage)
+//atualiza o texto do botão do item, indicando a quantidade deles no carrinho
 function addNoCarrinho(){
     let estaNoCarrinho = false
     let carrinho = JSON.parse(sessionStorage.getItem('carrinho'))
@@ -12,10 +30,12 @@ function addNoCarrinho(){
             if(carrinho[i].id == this.name){
                 estaNoCarrinho = true
                 carrinho[i].qtd++
+                this.innerHTML = "Quantidade no carrinho: " + carrinho[i].qtd
             }
         }
         
         if(!estaNoCarrinho){ //se o item não estiver no carrinho, ele é adicionado
+            this.innerHTML = "Quantidade no carrinho: 1"
             let item = {
                 "id": this.name,
                 "qtd": 1
@@ -32,6 +52,7 @@ function addNoCarrinho(){
         }
         carrinho = []
         carrinho.push(item)
+        this.innerHTML = "Quantidade no carrinho: 1"
         sessionStorage.setItem('carrinho', JSON.stringify(carrinho))
     }
 }
@@ -50,6 +71,7 @@ let categorias = getCategorias(produtos)
 //produtos é a lista com os produtos
 //content é o container onde os produtos serão exibidos
 function exibirProdutos(produtos, content){
+    console.log("ih tche, exibiu")
     for (let i = 0; i < produtos.length; i++) {
         let card = document.createElement("div")
         card.className = "card"
@@ -68,7 +90,14 @@ function exibirProdutos(produtos, content){
     
         let comprar = document.createElement("button")
         comprar.className = "botaoComprar"
-        comprar.innerHTML = "Adicionar ao carrinho"
+        let qtdNoCarrinho = getQtdNoCarrinho(produtos[i]["id"])
+        console.log(qtdNoCarrinho)
+        if(qtdNoCarrinho == 0){
+            comprar.innerHTML = "Adicionar ao carrinho"
+        }
+        else{
+            comprar.innerHTML = `Quantidade no carrinho: ${qtdNoCarrinho}`
+        }        
         comprar.name = produtos[i]["id"]
         comprar.addEventListener("click", addNoCarrinho)
     
