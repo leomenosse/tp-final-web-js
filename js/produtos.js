@@ -221,5 +221,82 @@ let produtos = [{
         "categoria": "Eletrodomésticos",
         "preco": 4700.00,
         "imgPath": "../img/geladeira.png"
+    },
+    {
+        "id": 32,
+        "nome": "Geladeira",
+        "categoria": "Eletrodomésticos",
+        "preco": 250.00,
+        "imgPath": "../img/geladeira.png"
+    },
+    {
+        "id": 33,
+        "nome": "Notebook",
+        "categoria": "Eletrônicos",
+        "preco": 499.90,
+        "imgPath": "../img/notebook.png"
+    },
+    {
+        "id": 34,
+        "nome": "Guarda roupa",
+        "categoria": "Móveis",
+        "preco": 1350.00,
+        "imgPath": "../img/guarda-roupa.png"
+    },
+    {
+        "id": 35,
+        "nome": "Geladeira",
+        "categoria": "Eletrodomésticos",
+        "preco": 1299.90,
+        "imgPath": "../img/geladeira.png"
+    },
+    {
+        "id": 36,
+        "nome": "Geladeira",
+        "categoria": "Eletrodomésticos",
+        "preco": 7199.90,
+        "imgPath": "../img/geladeira.png"
+    },
+    {
+        "id": 37,
+        "nome": "Notebook",
+        "categoria": "Eletrônicos",
+        "preco": 7499.99,
+        "imgPath": "../img/notebook.png"
+    },
+    {
+        "id": 38,
+        "nome": "Notebook",
+        "categoria": "Eletrônicos",
+        "preco": 7000.00,
+        "imgPath": "../img/notebook.png"
+    },
+    {
+        "id": 39,
+        "nome": "Guarda roupa",
+        "categoria": "Móveis",
+        "preco": 6350.00,
+        "imgPath": "../img/guarda-roupa.png"
+    },
+    {
+        "id": 40,
+        "nome": "Geladeira",
+        "categoria": "Eletrodomésticos",
+        "preco": 6499.90,
+        "imgPath": "../img/geladeira.png"
+    },
+    {
+        "id": 41,
+        "nome": "Notebook",
+        "categoria": "Eletrônicos",
+        "preco": 4000.00,
+        "imgPath": "../img/notebook.png"
+    },
+    {
+        "id": 42,
+        "nome": "Guarda roupa",
+        "categoria": "Móveis",
+        "preco": 4349.99,
+        "imgPath": "../img/guarda-roupa.png"
     }
 ]
