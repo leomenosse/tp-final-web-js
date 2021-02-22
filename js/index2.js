@@ -3,7 +3,7 @@ $(document).ready(function() {
     let produtosCarrinho = JSON.parse(sessionStorage.getItem('carrinho'))
     let totalCompra = 0
 
-    if (produtosCarrinho.length == 0) {
+    if(produtosCarrinho == null || produtosCarrinho.length == 0){
         $(".lista-itens").append("<div>Não há nenhum item no carrinho</div>")
     } else { //há produtos no carrinho
 
