@@ -3,6 +3,39 @@ let filtroCategorias = document.querySelector("#categorias")
 let filtroPrecos = document.querySelector("#precos")
 let content = document.querySelector(".card-container")
 
+function addNoCarrinho(){
+    let estaNoCarrinho = false
+    let carrinho = JSON.parse(sessionStorage.getItem('carrinho'))
+
+    if(carrinho != null && carrinho.length > 0){
+        for(let i = 0; i < carrinho.length; i++){
+            if(carrinho[i].id == this.name){
+                estaNoCarrinho = true
+                carrinho[i].qtd++
+            }
+        }
+        
+        if(!estaNoCarrinho){ //se o item não estiver no carrinho, ele é adicionado
+            let item = {
+                "id": this.name,
+                "qtd": 1
+            }
+            carrinho.push(item)
+        }
+
+        sessionStorage.setItem('carrinho', JSON.stringify(carrinho))
+    }
+    else{
+        let item = {
+            "id": this.name,
+            "qtd": 1
+        }
+        carrinho = []
+        carrinho.push(item)
+        sessionStorage.setItem('carrinho', JSON.stringify(carrinho))
+    }
+}
+
 function getCategorias(produtos) {
     let categorias = []
 
@@ -37,6 +70,7 @@ function exibirProdutos(produtos, content){
         comprar.className = "botaoComprar"
         comprar.innerHTML = "Adicionar ao carrinho"
         comprar.name = produtos[i]["id"]
+        comprar.addEventListener("click", addNoCarrinho)
     
         card.appendChild(img)
         card.appendChild(nome)
