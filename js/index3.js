@@ -3,6 +3,8 @@ $(document).ready(function() {
     let usuario = JSON.parse(sessionStorage.getItem('dadosUsuario'))
     console.log(usuario)
 
+    setResumoItens()
+
     //criação da tabela para exibição dos dados do usuário
     let table = document.createElement("table")
 
@@ -116,9 +118,9 @@ $(document).ready(function() {
     table.appendChild(headerEstado)
 
     $(".lista-dados").append(table)
-
+    
     let produtosCarrinho = JSON.parse(sessionStorage.getItem('carrinho'))
-
+    
     if (produtosCarrinho != null || produtosCarrinho.length != 0) {
         let frete = document.createElement("div")
         frete.innerHTML = gerarFrete()
@@ -126,3 +128,60 @@ $(document).ready(function() {
         $(".lista-itens").append(frete)
     }
 })
+
+function setResumoItens(){
+    let produtosCarrinho = JSON.parse(sessionStorage.getItem('carrinho'))
+    let totalCompra = 0
+    let table = document.createElement("table")
+    let header = document.createElement("tr")
+    let trProduto = document.createElement("th")
+    trProduto.innerHTML = "Produto"
+    header.appendChild(trProduto)
+    
+    let trPreco = document.createElement("th")
+    trPreco.innerHTML = "Preço"
+    header.appendChild(trPreco)
+    
+    let trQtd = document.createElement("th")
+    trQtd.innerHTML = "Quantidade"
+    header.appendChild(trQtd)
+    
+    let trSubtotal = document.createElement("th")
+    trSubtotal.innerHTML = "Subtotal"
+    header.appendChild(trSubtotal)
+    
+    table.appendChild(header)
+    $(".lista-itens").append(table)
+    
+    for (let i = 0; i < produtosCarrinho.length; i++) {
+        let produto = findProduto(produtosCarrinho[i].id, produtos)
+        let linha = document.createElement("tr")
+        let nome = document.createElement("td")
+        nome.innerHTML = produto.nome
+        
+        let preco = document.createElement("td")
+        preco.id = `preco${produto.id}`
+        preco.innerHTML = `R$${formatPrice(produto.preco)}`
+        
+        let qtd = document.createElement("td")
+        qtd.innerHTML = produtosCarrinho[i].qtd
+
+        let subtotal = document.createElement("td")
+        subtotal.id = `subtotal${produto.id}`
+        subtotal.innerHTML = `R$${formatPrice(produto.preco * produtosCarrinho[i].qtd)}`
+
+        linha.appendChild(nome)
+        linha.appendChild(preco)
+        linha.appendChild(qtd)
+        linha.appendChild(subtotal)
+        $("table").append(linha)
+
+        totalCompra += produto.preco * produtosCarrinho[i].qtd
+    }
+
+    let totalLabel = document.createElement("div")
+    totalLabel.innerHTML = `R$${formatPrice(totalCompra)}`
+    totalLabel.className = "total-compra"
+    $(".lista-itens").append(totalLabel)
+
+}
