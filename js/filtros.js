@@ -4,6 +4,7 @@ let precosEscolhidos = []
 //adiciona ou remove uma categoria à lista de categorias escolhidas
 //utilizada para exibição dos produtos das categorias selecionadas pelo usuário
 $(".checkbox-categoria").change(function(){
+    limparFiltrosPrecos()
     limparProdutos()
     if(this.checked){
         categoriasEscolhidas.push(this.id)
@@ -26,6 +27,7 @@ $(".checkbox-categoria").change(function(){
 })
 
 $(".checkbox-preco").change(function(){
+    limparFiltrosCategorias()
     limparProdutos()
     if(this.checked){
         precosEscolhidos.push(parseFloat(this.id))
@@ -49,6 +51,20 @@ function limparProdutos(){
     while(cardContainer.firstChild){
         cardContainer.removeChild(cardContainer.lastChild)
     }
+}
+
+function limparFiltrosCategorias(){
+    categoriasEscolhidas = []
+    $(".checkbox-categoria").each(function(){
+        $(this).prop("checked", false)
+    })
+}
+
+function limparFiltrosPrecos(){
+    precosEscolhidos = []
+    $(".checkbox-preco").each(function(){
+        $(this).prop("checked", false)
+    })
 }
 
 //recebe uma lista com todos os produtos e uma lista com os nomes

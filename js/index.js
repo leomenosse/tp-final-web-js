@@ -15,7 +15,6 @@ function getQtdNoCarrinho(id){
             }
         }
     }
-    console.log("Quantidade do item " + id+ " no carrinho: " + 0)
     return 0
 }
 
@@ -71,7 +70,6 @@ let categorias = getCategorias(produtos)
 //produtos é a lista com os produtos
 //content é o container onde os produtos serão exibidos
 function exibirProdutos(produtos, content){
-    console.log("ih tche, exibiu")
     for (let i = 0; i < produtos.length; i++) {
         let card = document.createElement("div")
         card.className = "card"
@@ -91,7 +89,6 @@ function exibirProdutos(produtos, content){
         let comprar = document.createElement("button")
         comprar.className = "botaoComprar"
         let qtdNoCarrinho = getQtdNoCarrinho(produtos[i]["id"])
-        console.log(qtdNoCarrinho)
         if(qtdNoCarrinho == 0){
             comprar.innerHTML = "Adicionar ao carrinho"
         }
