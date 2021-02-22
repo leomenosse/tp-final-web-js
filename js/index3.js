@@ -117,8 +117,12 @@ $(document).ready(function() {
 
     $(".lista-dados").append(table)
 
-    let frete = document.createElement("div")
-    frete.innerHTML = gerarFrete()
-    frete.className = "total-frete"
-    $(".lista-itens").append(frete)
+    let produtosCarrinho = JSON.parse(sessionStorage.getItem('carrinho'))
+
+    if (produtosCarrinho != null || produtosCarrinho.length != 0) {
+        let frete = document.createElement("div")
+        frete.innerHTML = gerarFrete()
+        frete.className = "total-frete"
+        $(".lista-itens").append(frete)
+    }
 })

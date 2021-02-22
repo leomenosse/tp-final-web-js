@@ -3,7 +3,7 @@ $(document).ready(function() {
     let produtosCarrinho = JSON.parse(sessionStorage.getItem('carrinho'))
     let totalCompra = 0
 
-    if(produtosCarrinho == null || produtosCarrinho.length == 0){
+    if (produtosCarrinho == null || produtosCarrinho.length == 0) {
         $(".lista-itens").append("<div>Não há nenhum item no carrinho</div>")
     } else { //há produtos no carrinho
 
@@ -60,23 +60,23 @@ $(document).ready(function() {
         $(".lista-itens").append(totalLabel)
 
     }
-})
 
-$(".botao").click(function() {
-    dadosUsuario = []
+    $(".botao").click(function() {
+        dadosUsuario = []
 
-    dadosUsuario.push({
-        "nome": document.querySelector("#nome").value,
-        "cpf": document.querySelector("#cpf").value,
-        "email": document.querySelector("#email").value,
-        "rua": document.querySelector("#rua").value,
-        "bairro": document.querySelector("#bairro").value,
-        "numero": document.querySelector("#numero").value,
-        "cep": document.querySelector("#cep").value,
-        "cidade": document.querySelector("#cidade").value,
-        "estado": document.querySelector("#estado").value
+        dadosUsuario.push({
+            "nome": document.querySelector("#nome").value,
+            "cpf": document.querySelector("#cpf").value,
+            "email": document.querySelector("#email").value,
+            "rua": document.querySelector("#rua").value,
+            "bairro": document.querySelector("#bairro").value,
+            "numero": document.querySelector("#numero").value,
+            "cep": document.querySelector("#cep").value,
+            "cidade": document.querySelector("#cidade").value,
+            "estado": document.querySelector("#estado").value
+        })
+
+        //armazenamento dos dados do usuário na sessão
+        sessionStorage.setItem('dadosUsuario', JSON.stringify(dadosUsuario))
     })
-
-    //armazenamento dos dados do usuário na sessão
-    sessionStorage.setItem('dadosUsuario', JSON.stringify(dadosUsuario))
 })
