@@ -2,6 +2,10 @@
     margin: 0;
 }
 
+body{
+    background-color: #8bd7d2;
+}
+
 .container2 {
     display: grid;
     grid-template-columns: 1fr;
@@ -32,8 +36,8 @@
     padding: 1rem;
     display: grid;
     grid-template-columns: 0.5fr 0.5fr;
-    grid-template-rows: auto auto auto;
-    grid-template-areas: "lista-itens lista-itens" "label input" "botao botao";
+    grid-template-rows: auto 30px auto auto;
+    grid-template-areas: "lista-itens lista-itens" ". ." "label input" "botao botao";
 }
 
 .form-container .lista-itens,
@@ -84,30 +88,27 @@ tr:nth-child(even) {
     grid-area: label;
     /*border: 5px solid black;*/
     text-align: right;
-    padding: 1rem;
+    /* padding: 1rem; */
 }
 
 .form-container .labels p {
     font-weight: bold;
     margin-bottom: 25px;
+    margin-top: 1px;
+    height: 20px;
 }
 
 .form-container .inputs {
     grid-area: input;
-    /*border: 5px solid black;*/
+    height: 20px;
     text-align: left;
-    padding: 1rem;
 }
 
 .form-container .inputs input,
 .form-container .inputs select {
-    margin-top: 15px;
-    margin-bottom: 7.25px;
+    margin: 0 0 24px 0;
     background-color: rgba(255, 255, 255, 0.8);
-}
-
-.form-container .inputs select {
-    margin-top: 18.25px;
+    width: 0.5fr;
 }
 
 .form-container .botao {
