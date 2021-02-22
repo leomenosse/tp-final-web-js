@@ -149,7 +149,7 @@ function setFiltroPreco(){
 
         let label = document.createElement("label")
         label.setAttribute("for", inicio)
-        label.innerHTML = `R$${inicio.toFixed(2)} - R$${(inicio+499.99).toFixed(2)}`
+        label.innerHTML = `R$${formatPrice(inicio)} - R$${formatPrice(inicio+499.99)}`
 
         let lineBreak = document.createElement("br")
 
