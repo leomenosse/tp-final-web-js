@@ -37,12 +37,23 @@ $(document).ready(function() {
             nome.innerHTML = produto.nome
 
             let preco = document.createElement("td")
+            preco.id = `preco${produto.id}`
             preco.innerHTML = `R$${formatPrice(produto.preco)}`
 
             let qtd = document.createElement("td")
-            qtd.innerHTML = produtosCarrinho[i].qtd
+            let qtdInput = document.createElement("input")
+            qtdInput.className = "qtdInput"
+            qtdInput.type = "number"
+            qtdInput.min = "0"
+            qtdInput.step = "1"
+            // qtdInput.disabled = "true"
+            qtdInput.value = produtosCarrinho[i].qtd
+            qtdInput.name = produto.id
+            qtdInput.style.width = "60px"
+            qtd.appendChild(qtdInput)
 
             let subtotal = document.createElement("td")
+            subtotal.id = `subtotal${produto.id}`
             subtotal.innerHTML = `R$${formatPrice(produto.preco * produtosCarrinho[i].qtd)}`
 
             linha.appendChild(nome)
@@ -60,23 +71,71 @@ $(document).ready(function() {
         $(".lista-itens").append(totalLabel)
 
     }
-})
 
-$(".botao").click(function() {
-    dadosUsuario = []
+    $(".qtdInput").change(atualizarQtd)
+    $(".qtdInput").keyup(atualizarQtd)
 
-    dadosUsuario.push({
-        "nome": document.querySelector("#nome").value,
-        "cpf": document.querySelector("#cpf").value,
-        "email": document.querySelector("#email").value,
-        "rua": document.querySelector("#rua").value,
-        "bairro": document.querySelector("#bairro").value,
-        "numero": document.querySelector("#numero").value,
-        "cep": document.querySelector("#cep").value,
-        "cidade": document.querySelector("#cidade").value,
-        "estado": document.querySelector("#estado").value
+    $(".botao").click(function() {
+        dadosUsuario = []
+    
+        dadosUsuario.push({
+            "nome": document.querySelector("#nome").value,
+            "cpf": document.querySelector("#cpf").value,
+            "email": document.querySelector("#email").value,
+            "rua": document.querySelector("#rua").value,
+            "bairro": document.querySelector("#bairro").value,
+            "numero": document.querySelector("#numero").value,
+            "cep": document.querySelector("#cep").value,
+            "cidade": document.querySelector("#cidade").value,
+            "estado": document.querySelector("#estado").value
+        })
+    
+        //armazenamento dos dados do usuário na sessão
+        sessionStorage.setItem('dadosUsuario', JSON.stringify(dadosUsuario))
     })
 
-    //armazenamento dos dados do usuário na sessão
-    sessionStorage.setItem('dadosUsuario', JSON.stringify(dadosUsuario))
 })
+
+function atualizarQtd(){
+    let id = this.name
+    let precoField = document.querySelector(`#preco${id}`)
+    let subtotalField = document.querySelector(`#subtotal${id}`)
+    let totalField = document.querySelector(".total-compra")
+
+    if(this.value == 0){
+        let produto = findProduto(id, produtos)
+        let remover = confirm(`Deseja remover ${produto.nome} do carrinho?`)
+        if(remover){
+            removerDoCarrinho(id)
+            location.reload()
+        }
+        else{
+            this.value = 1
+        }
+    }
+
+    let preco = parseFloat(precoField.innerHTML.replace("R$", "").replace(",","."))
+    let subtotalAntigo = parseFloat(subtotalField.innerHTML.replace("R$", "").replace(",","."))
+    let totalAntigo = parseFloat(totalField.innerHTML.replace("R$", "").replace(",",".")) - subtotalAntigo
+
+    let subtotalNovo = this.value * preco
+    let totalNovo = totalAntigo + subtotalNovo
+
+    subtotalField.innerHTML = `R$${formatPrice(subtotalNovo)}`
+    totalField.innerHTML = `R$${formatPrice(totalNovo)}`
+}
+
+//remove um item do carrinho
+function removerDoCarrinho(id){
+    let carrinho = JSON.parse(sessionStorage.getItem('carrinho'))
+    console.log(carrinho)
+
+    if(carrinho != null && carrinho.length > 0){
+        for(let i = 0; i < carrinho.length; i++){
+            if(carrinho[i].id == id){
+                carrinho.splice(i, 1)
+            }
+        }
+    }
+    sessionStorage.setItem('carrinho', JSON.stringify(carrinho))
+}
