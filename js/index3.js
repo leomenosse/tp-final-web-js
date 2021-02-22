@@ -127,6 +127,11 @@ $(document).ready(function() {
         frete.className = "total-frete"
         $(".lista-itens").append(frete)
     }
+
+    $(".botaoVoltar").click(function(){
+        sessionStorage.removeItem('carrinho')
+        sessionStorage.removeItem('dadosUsuario')
+    })
 })
 
 function setResumoItens(){
