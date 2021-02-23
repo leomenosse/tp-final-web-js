@@ -14,10 +14,10 @@ let produtos = [{
     },
     {
         "id": 2,
-        "nome": "Notebook",
+        "nome": "Smart TV",
         "categoria": "Eletrônicos",
         "preco": 6000.00,
-        "imgPath": "../img/notebook.png"
+        "imgPath": "../img/tv.png"
     },
     {
         "id": 3,
@@ -28,17 +28,17 @@ let produtos = [{
     },
     {
         "id": 4,
-        "nome": "Geladeira",
+        "nome": "Fogão",
         "categoria": "Eletrodomésticos",
         "preco": 1050.90,
-        "imgPath": "../img/geladeira.png"
+        "imgPath": "../img/fogao.png"
     },
     {
         "id": 5,
-        "nome": "Notebook",
+        "nome": "Celular",
         "categoria": "Eletrônicos",
         "preco": 4000.00,
-        "imgPath": "../img/notebook.png"
+        "imgPath": "../img/celular.png"
     },
     {
         "id": 6,
@@ -49,31 +49,31 @@ let produtos = [{
     },
     {
         "id": 7,
-        "nome": "Guarda roupa",
+        "nome": "Sofá",
         "categoria": "Móveis",
         "preco": 500.00,
-        "imgPath": "../img/guarda-roupa.png"
+        "imgPath": "../img/sofa.png"
     },
     {
         "id": 8,
-        "nome": "Guarda roupa",
+        "nome": "Poltrona",
         "categoria": "Móveis",
         "preco": 550.00,
-        "imgPath": "../img/guarda-roupa.png"
+        "imgPath": "../img/poltrona.png"
     },
     {
         "id": 9,
-        "nome": "Geladeira",
+        "nome": "Microondas",
         "categoria": "Eletrodomésticos",
         "preco": 1499.90,
-        "imgPath": "../img/geladeira.png"
+        "imgPath": "../img/microondas.png"
     },
     {
         "id": 10,
-        "nome": "Guarda roupa",
+        "nome": "Poltrona",
         "categoria": "Móveis",
         "preco": 650.00,
-        "imgPath": "../img/guarda-roupa.png"
+        "imgPath": "../img/poltrona.png"
     },
     {
         "id": 11,
@@ -84,10 +84,10 @@ let produtos = [{
     },
     {
         "id": 12,
-        "nome": "Notebook",
+        "nome": "Celular",
         "categoria": "Eletrônicos",
         "preco": 7000.00,
-        "imgPath": "../img/notebook.png"
+        "imgPath": "../img/celular.png"
     },
     {
         "id": 13,
@@ -98,10 +98,10 @@ let produtos = [{
     },
     {
         "id": 14,
-        "nome": "Guarda roupa",
+        "nome": "Sofá",
         "categoria": "Móveis",
         "preco": 349.99,
-        "imgPath": "../img/guarda-roupa.png"
+        "imgPath": "../img/sofa.png"
     },
     {
         "id": 15,
@@ -112,10 +112,10 @@ let produtos = [{
     },
     {
         "id": 16,
-        "nome": "Geladeira",
+        "nome": "Microondas",
         "categoria": "Eletrodomésticos",
         "preco": 799.90,
-        "imgPath": "../img/geladeira.png"
+        "imgPath": "../img/microondas.png"
     },
     {
         "id": 17,
@@ -126,66 +126,66 @@ let produtos = [{
     },
     {
         "id": 18,
-        "nome": "Notebook",
+        "nome": "Smart TV",
         "categoria": "Eletrônicos",
         "preco": 7300.00,
-        "imgPath": "../img/notebook.png"
+        "imgPath": "../img/tv.png"
     },
     {
         "id": 19,
-        "nome": "Geladeira",
+        "nome": "Fogão",
         "categoria": "Eletrodomésticos",
         "preco": 7149.90,
-        "imgPath": "../img/geladeira.png"
+        "imgPath": "../img/fogao.png"
     },
     {
         "id": 20,
-        "nome": "Notebook",
+        "nome": "Smart TV",
         "categoria": "Eletrônicos",
         "preco": 7499.99,
-        "imgPath": "../img/notebook.png"
+        "imgPath": "../img/tv.png"
     },
     {
         "id": 21,
-        "nome": "Geladeira",
+        "nome": "Fogão",
         "categoria": "Eletrodomésticos",
         "preco": 499.90,
-        "imgPath": "../img/geladeira.png"
+        "imgPath": "../img/fogao.png"
     },
     {
         "id": 22,
-        "nome": "Guarda roupa",
+        "nome": "Sofá",
         "categoria": "Móveis",
         "preco": 1400.00,
-        "imgPath": "../img/guarda-roupa.png"
+        "imgPath": "../img/sofa.png"
     },
     {
         "id": 23,
-        "nome": "Geladeira",
+        "nome": "Microondas",
         "categoria": "Eletrodomésticos",
         "preco": 4199.90,
-        "imgPath": "../img/geladeira.png"
+        "imgPath": "../img/microondas.png"
     },
     {
         "id": 24,
-        "nome": "Guarda roupa",
+        "nome": "Sofá",
         "categoria": "Móveis",
         "preco": 4000.00,
-        "imgPath": "../img/guarda-roupa.png"
+        "imgPath": "../img/sofa.png"
     },
     {
         "id": 25,
-        "nome": "Notebook",
+        "nome": "Celular",
         "categoria": "Eletrônicos",
         "preco": 6499.99,
-        "imgPath": "../img/notebook.png"
+        "imgPath": "../img/celular.png"
     },
     {
         "id": 26,
-        "nome": "Notebook",
+        "nome": "Smart TV",
         "categoria": "Eletrônicos",
         "preco": 6200.00,
-        "imgPath": "../img/notebook.png"
+        "imgPath": "../img/tv.png"
     },
     {
         "id": 27,
@@ -217,17 +217,17 @@ let produtos = [{
     },
     {
         "id": 31,
-        "nome": "Geladeira",
+        "nome": "Microondas",
         "categoria": "Eletrodomésticos",
         "preco": 4700.00,
-        "imgPath": "../img/geladeira.png"
+        "imgPath": "../img/microondas.png"
     },
     {
         "id": 32,
-        "nome": "Geladeira",
+        "nome": "Fogão",
         "categoria": "Eletrodomésticos",
         "preco": 250.00,
-        "imgPath": "../img/geladeira.png"
+        "imgPath": "../img/fogao.png"
     },
     {
         "id": 33,
@@ -238,10 +238,10 @@ let produtos = [{
     },
     {
         "id": 34,
-        "nome": "Guarda roupa",
+        "nome": "Poltrona",
         "categoria": "Móveis",
         "preco": 1350.00,
-        "imgPath": "../img/guarda-roupa.png"
+        "imgPath": "../img/poltrona.png"
     },
     {
         "id": 35,
@@ -252,10 +252,10 @@ let produtos = [{
     },
     {
         "id": 36,
-        "nome": "Geladeira",
+        "nome": "Microondas",
         "categoria": "Eletrodomésticos",
         "preco": 7199.90,
-        "imgPath": "../img/geladeira.png"
+        "imgPath": "../img/Microondas.png"
     },
     {
         "id": 37,
@@ -266,17 +266,17 @@ let produtos = [{
     },
     {
         "id": 38,
-        "nome": "Notebook",
+        "nome": "Celular",
         "categoria": "Eletrônicos",
         "preco": 7000.00,
-        "imgPath": "../img/notebook.png"
+        "imgPath": "../img/celular.png"
     },
     {
         "id": 39,
-        "nome": "Guarda roupa",
+        "nome": "Sofá",
         "categoria": "Móveis",
         "preco": 6350.00,
-        "imgPath": "../img/guarda-roupa.png"
+        "imgPath": "../img/sofa.png"
     },
     {
         "id": 40,
@@ -287,10 +287,10 @@ let produtos = [{
     },
     {
         "id": 41,
-        "nome": "Notebook",
+        "nome": "Smart TV",
         "categoria": "Eletrônicos",
         "preco": 4000.00,
-        "imgPath": "../img/notebook.png"
+        "imgPath": "../img/tv.png"
     },
     {
         "id": 42,
