@@ -154,3 +154,8 @@ body {
     font-weight: bold;
     padding: 0.3rem;
 }
+
+#categorias label,
+#precos label{
+    font-size: 1.3vw;
+}
