@@ -77,8 +77,9 @@ $(document).ready(function() {
 
     $(".botao").click(function() {
         dadosUsuario = []
-    
-        dadosUsuario.push({
+        let camposVazios = false
+
+        let user = {
             "nome": document.querySelector("#nome").value,
             "cpf": document.querySelector("#cpf").value,
             "email": document.querySelector("#email").value,
@@ -88,10 +89,27 @@ $(document).ready(function() {
             "cep": document.querySelector("#cep").value,
             "cidade": document.querySelector("#cidade").value,
             "estado": document.querySelector("#estado").value
-        })
+        }
+
+        for (const key in user) {
+            if (Object.hasOwnProperty.call(user, key)) {
+                const element = user[key];
+                if(element == ""){
+                    camposVazios = true
+                }
+            }
+        }
     
-        //armazenamento dos dados do usuário na sessão
-        sessionStorage.setItem('dadosUsuario', JSON.stringify(dadosUsuario))
+        if(camposVazios){
+            alert("Todos os campos devem ser preenchidos")
+            $(".botao a").prop("href", "#")
+        }
+        else{
+            dadosUsuario.push(user)
+            //armazenamento dos dados do usuário na sessão
+            sessionStorage.setItem('dadosUsuario', JSON.stringify(dadosUsuario))
+            $(".botao a").prop("href", "index3.html")
+        }
     })
 
 })
