@@ -100,8 +100,12 @@ $(document).ready(function() {
             }
         }
     
-        if(camposVazios){
-            alert("Todos os campos devem ser preenchidos")
+        if(produtosCarrinho == null || produtosCarrinho.length == 0){
+            alert("Adicione algum item no carrinho para concluir sua compra.")
+            $(".botao a").prop("href", "#")
+        }
+        else if(camposVazios){
+            alert("Todos os campos do formulário devem ser preenchidos.")
             $(".botao a").prop("href", "#")
         }
         else{
